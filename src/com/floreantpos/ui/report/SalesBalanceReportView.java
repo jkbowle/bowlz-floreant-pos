@@ -89,7 +89,7 @@ public class SalesBalanceReportView extends JPanel {
 		ReportService reportService = new ReportService();
 		SalesBalanceReport report = reportService.getSalesBalanceReport(fromDate, toDate);
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		ReportUtil.populateRestaurantProperties(map);
 		map.put("fromDate", shortDateFormatter.format(fromDate));
 		map.put("toDate", shortDateFormatter.format(toDate));

@@ -30,6 +30,7 @@ import com.floreantpos.report.services.ReportService;
 import com.floreantpos.ui.dialog.POSMessageDialog;
 import com.floreantpos.ui.util.UiUtil;
 import com.floreantpos.util.PanelTester;
+import net.sf.jasperreports.engine.JRDataSource;
 
 public class CreditCardReportView extends JPanel {
 	private JXDatePicker fromDatePicker = UiUtil.getCurrentMonthStart();
@@ -86,7 +87,7 @@ public class CreditCardReportView extends JPanel {
 		ReportService reportService = new ReportService();
 		CreditCardReport report = reportService.getCreditCardReport(fromDate, toDate);
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		ReportUtil.populateRestaurantProperties(map);
 		map.put("reportTitle", "========= CREDIT CARD REPORT ==========");
 		map.put("fromDate", ReportService.formatShortDate(fromDate));
@@ -100,7 +101,8 @@ public class CreditCardReportView extends JPanel {
 		map.put("netCharge", Application.formatNumber(report.getNetCharge()));
 		
 		JasperReport jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource("/com/floreantpos/ui/report/credit_card_report.jasper"));
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, new JRTableModelDataSource(report.getTableModel()));
+                JRDataSource ds = new JRTableModelDataSource(report.getTableModel());
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, ds);
 		JRViewer viewer = new JRViewer(jasperPrint);
 		reportContainer.removeAll();
 		reportContainer.add(viewer);

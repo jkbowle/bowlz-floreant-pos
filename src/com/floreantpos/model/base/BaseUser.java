@@ -77,6 +77,7 @@ public abstract class BaseUser  implements Comparable, Serializable {
 	private java.lang.Double costPerHour;
 	private java.lang.Boolean clockedIn;
 	private java.util.Date lastClockInTime;
+        private java.lang.Boolean active;
 
 	// many to one
 	private com.floreantpos.model.Shift currentShift;
@@ -292,7 +293,13 @@ public abstract class BaseUser  implements Comparable, Serializable {
 		this.currentTerminal = currentTerminal;
 	}
 
+         public Boolean isActive() {
+                return active;
+         }
 
+         public void setActive(Boolean active) {
+                this.active = active;
+          }
 
 	/**
 	 * Return the value associated with the column: N_USER_TYPE

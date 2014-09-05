@@ -15,6 +15,8 @@
     <!--property name="image" type="java.sql.Blob" column="IMAGE" length="1048576" /-->
     <property column="COST_PER_HOUR" name="costPerHour" type="java.lang.Double"/>
     <property column="CLOCKED_IN" name="clockedIn" type="java.lang.Boolean"/>
+    <!-- IS_ACTIVE added 9/1/2014 -->
+    <property column="IS_ACTIVE" name="active" type="java.lang.Boolean"/> 
     <property column="LAST_CLOCK_IN_TIME" name="lastClockInTime" type="java.util.Date"/>
     <!-- Associations -->
     <many-to-one class="Shift" column="SHIFT_ID" name="currentShift"/>

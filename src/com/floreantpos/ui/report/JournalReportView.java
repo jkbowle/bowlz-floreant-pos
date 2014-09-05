@@ -85,7 +85,7 @@ public class JournalReportView extends JPanel {
 		ReportService reportService = new ReportService();
 		JournalReportModel report = reportService.getJournalReport(fromDate, toDate);
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("reportTitle", "========= JOURNAL REPORT ==========");
 		map.put("fromDate", ReportService.formatShortDate(fromDate));
 		map.put("toDate", ReportService.formatShortDate(toDate));

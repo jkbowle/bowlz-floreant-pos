@@ -76,7 +76,7 @@ public class UserExplorer extends TransparentPanel {
 					user2.setLastName(user.getLastName());
 					user2.setPassword(user.getPassword());
 					user2.setSsn(user.getSsn());
-					
+					user2.setActive(user.isActive());
 					UserForm editor = new UserForm();
 					editor.setEditMode(false);
 					editor.setBean(user2);
@@ -156,7 +156,7 @@ public class UserExplorer extends TransparentPanel {
 	class UserTableModel extends ListTableModel {
 		
 		UserTableModel(List list){
-			super(new String[] {com.floreantpos.POSConstants.ID, com.floreantpos.POSConstants.FIRST_NAME, com.floreantpos.POSConstants.LAST_NAME, com.floreantpos.POSConstants.TYPE}, list);
+			super(new String[] {com.floreantpos.POSConstants.ID, com.floreantpos.POSConstants.FIRST_NAME, com.floreantpos.POSConstants.LAST_NAME, com.floreantpos.POSConstants.TYPE,"active"}, list);
 		}
 		
 
@@ -175,6 +175,9 @@ public class UserExplorer extends TransparentPanel {
 					
 				case 3:
 					return user.getNewUserType();
+                                case 4:
+                                        return Boolean.valueOf(user.isActive());
+                                   
 			}
 			return null;
 		}

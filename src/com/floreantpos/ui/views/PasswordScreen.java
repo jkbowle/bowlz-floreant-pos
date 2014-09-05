@@ -260,6 +260,10 @@ public class PasswordScreen extends JPanel {
 
                             UserDAO dao = new UserDAO();
                             User user = dao.findUser(userId);
+                            if(user == null || !user.isActive())
+                            {
+                                throw new RuntimeException("The user entered does not exist!");
+                            }
                             if (!user.getPassword().equalsIgnoreCase(newPass)) {
 				throw new RuntimeException(POSConstants.WRONG_PASSWORD);
                             }

@@ -38,7 +38,7 @@ import javax.print.PrintServiceLookup;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JRReport;
+import net.sf.jasperreports.engine.type.OrientationEnum;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
@@ -111,14 +111,14 @@ public class JRPrinterAWT implements Printable {
 
 		printJob.setJobName("JasperReports - " + jasperPrint.getName());
 
-		switch (jasperPrint.getOrientation()) {
-			case JRReport.ORIENTATION_LANDSCAPE: {
+		switch (jasperPrint.getOrientationValue()) {
+			case LANDSCAPE: {
 				pageFormat.setOrientation(PageFormat.LANDSCAPE);
 				paper.setSize(jasperPrint.getPageHeight(), jasperPrint.getPageWidth());
 				paper.setImageableArea(0, 0, jasperPrint.getPageHeight(), jasperPrint.getPageWidth());
 				break;
 			}
-			case JRReport.ORIENTATION_PORTRAIT:
+			case PORTRAIT:
 			default: {
 				pageFormat.setOrientation(PageFormat.PORTRAIT);
 				paper.setSize(jasperPrint.getPageWidth(), jasperPrint.getPageHeight());

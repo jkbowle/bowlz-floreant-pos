@@ -57,8 +57,11 @@ public class PayrollReportView extends TransparentPanel {
     private JPanel reportPanel;
     private JPanel contentPane;
     //private JComboBox cbUserType;
-
+    static {
+        System.setProperty("java.awt.headless", "true");
+    }
     public PayrollReportView() {
+        
         //cbUserType.setModel(new DefaultComboBoxModel(new String[]{com.floreantpos.POSConstants.ALL, com.floreantpos.POSConstants.SERVER, com.floreantpos.POSConstants.CASHIER, com.floreantpos.POSConstants.MANAGER}));
 
         TerminalDAO terminalDAO = new TerminalDAO();

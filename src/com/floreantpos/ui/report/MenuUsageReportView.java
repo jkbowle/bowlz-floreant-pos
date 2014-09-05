@@ -85,7 +85,7 @@ public class MenuUsageReportView extends JPanel {
 		ReportService reportService = new ReportService();
 		MenuUsageReport report = reportService.getMenuUsageReport(fromDate, toDate);
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("reportTitle", "========= MENU USAGE REPORT ==========");
 		map.put("fromDate", ReportService.formatShortDate(fromDate));
 		map.put("toDate", ReportService.formatShortDate(toDate));
