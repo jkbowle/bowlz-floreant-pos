@@ -438,10 +438,14 @@ public class PosPrintService {
                                         {
                                             posPrinter.printText("T.O. "+ticket.getCustName());
                                         }
+                                        else if(ticket.isTab())
+                                        {
+                                        	posPrinter.printText("TAB "+ticket.getCustName());
+                                        }
                                         else
                                         {
                                             posPrinter.printText(String.valueOf(ticket.getTableNumber()));
-                                        }                                        
+                                        }
                                         posPrinter.endLine();
                                         // Added table number to kitchen receipt 12/28/2013
                                         

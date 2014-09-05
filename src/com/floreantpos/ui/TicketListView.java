@@ -132,9 +132,13 @@ public class TicketListView extends JPanel {
                {
                    ret = "TAKE OUT (" +name+")";
                }
+               else if(Ticket.TAB == tableNumber)
+               {
+                   ret = "TAB ("+name+")";
+               }
                else
                {
-                   ret = tableNumber.toString() + " ("+name+")";
+            	   ret = tableNumber.toString() + " ("+name+")";
                }
             }
             

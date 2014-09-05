@@ -31,7 +31,7 @@ public class NumberSelectionDialog2 extends POSDialog implements ActionListener 
         
         private NumberValueNoDecimal numVal = new NumberValueNoDecimal(false);
         
-        private String customerName ="test";
+        private String customerName ="";
         
         public NumberSelectionDialog2()
         {

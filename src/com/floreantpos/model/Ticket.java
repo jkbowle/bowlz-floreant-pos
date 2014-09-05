@@ -13,6 +13,7 @@ import com.floreantpos.model.base.BaseTicket;
 public class Ticket extends BaseTicket {
 	private static final long serialVersionUID = 1L;
 	public final static int TAKE_OUT = -1;
+	public final static int TAB = -2;
 
 	/*[CONSTRUCTOR MARKER BEGIN]*/
 	public Ticket () {
@@ -328,5 +329,11 @@ public class Ticket extends BaseTicket {
         {
             Integer num = this.getTableNumber();
             return TAKE_OUT==num;
+        }
+        
+        public boolean isTab()
+        {
+        	Integer num = this.getTableNumber();
+        	return TAB==num;
         }
 }

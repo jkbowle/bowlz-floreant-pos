@@ -235,7 +235,7 @@ public class OthersView extends TransparentPanel {
     
     public void updateView() {
     	if(currentTicket != null) {
-    		if(currentTicket.getTableNumber() == Ticket.TAKE_OUT) {
+    		if((currentTicket.getTableNumber() == Ticket.TAKE_OUT) || (currentTicket.getTableNumber() == Ticket.TAB)) {
     			btnCustomerNumber.setText("");
         		btnTableNumber.setText("");
         		

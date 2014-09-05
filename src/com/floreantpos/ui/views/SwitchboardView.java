@@ -44,6 +44,8 @@ import com.floreantpos.ui.dialog.VoidTicketDialog;
 import com.floreantpos.ui.views.order.OrderView;
 import com.floreantpos.ui.views.order.RootView;
 import java.awt.Frame;
+import com.floreantpos.swing.PosButton;
+import java.awt.Dimension;
 
 /**
  *
@@ -177,6 +179,30 @@ public class SwitchboardView extends JPanel implements ActionListener {
 		btnTakeout.setText(POSConstants.CAPITAL_TAKE_OUT);
 		btnTakeout.setPreferredSize(new java.awt.Dimension(160, 60));
 		activityPanel.add(btnTakeout);
+		
+		psbtnTab = new PosButton();
+		psbtnTab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Application application = Application.getInstance();
+                String custName = getCustomerName();
+                Ticket ticket = new Ticket();
+                ticket.setTableNumber(Ticket.TAB);
+                ticket.setTerminal(application.getTerminal());
+                ticket.setOwner(Application.getCurrentUser());
+                ticket.setShift(application.getCurrentShift());
+                ticket.setCustName(custName);
+                Calendar currentTime = Calendar.getInstance();
+                ticket.setCreateDate(currentTime.getTime());
+                ticket.setCreationHour(currentTime.get(Calendar.HOUR_OF_DAY));
+
+                OrderView.getInstance().setCurrentTicket(ticket);
+                RootView.getInstance().showView(OrderView.VIEW_NAME);
+			}
+		});
+		psbtnTab.setText("TAB");
+		psbtnTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pay_32.png")));
+		psbtnTab.setPreferredSize(new Dimension(160, 60));
+		activityPanel.add(psbtnTab);
 
 		btnPrintTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/print_32.png")));
 		btnPrintTicket.setText(POSConstants.CAPITAL_PRINT);
@@ -689,6 +715,7 @@ public class SwitchboardView extends JPanel implements ActionListener {
 	private com.floreantpos.swing.PosButton btnVoidTicket;
 	private javax.swing.JLabel lblUserName;
 	private com.floreantpos.ui.TicketListView openTicketList;
+	private PosButton psbtnTab;
 
 	// End of variables declaration//GEN-END:variables
 

@@ -292,7 +292,7 @@ public class PayOutView extends TransparentPanel {
         super();
         this.reason=reason;
     }
-    @Override
+   
     public void itemStateChanged(ItemEvent event) {
        if (event.getStateChange() == ItemEvent.SELECTED) {
           Object item = event.getItem();
