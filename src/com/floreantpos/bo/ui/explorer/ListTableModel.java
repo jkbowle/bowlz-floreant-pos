@@ -57,7 +57,7 @@ public abstract class ListTableModel extends AbstractTableModel {
 	
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		return false;
+		return true;
 	}
 	
 	public Object getRowData(int row) {

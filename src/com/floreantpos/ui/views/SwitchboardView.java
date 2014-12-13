@@ -136,7 +136,7 @@ public class SwitchboardView extends JPanel implements ActionListener {
 		activityPanel.add(btnInfo);
 
 		btnNewTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new_ticket_32.png")));
-		btnNewTicket.setText(POSConstants.CAPITAL_NEW);
+		btnNewTicket.setText("DINE-IN");
 		btnNewTicket.setPreferredSize(new java.awt.Dimension(120, 50));
 		activityPanel.add(btnNewTicket);
 
